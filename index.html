@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Isaac Cheok | AI, Marketing & Product Portfolio" data-zh="Isaac Cheok | AI 内容 · 营销 · 产品作品集">Isaac Cheok | AI 内容 · 营销 · 产品作品集</title>
+    <meta name="description" content="Portfolio of Isaac Cheok, a Business Administration student at Singapore Polytechnic who uses AI as a creative, strategic, and technical collaborator.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #FBF9F6; /* Warm neutral background */
+            --surface-color: #FFFFFF;
+            --text-main: #1C1C1C;
+            --text-muted: #595959;
+            --accent: #0D9488; /* Teal */
+            --accent-hover: #0F766E;
+            --accent-light: #E0F2FE; /* Soft blue/teal for chips */
+            --accent-light-text: #0369A1;
+            --border-color: #E5E7EB;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-pill: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111315;
+            --surface-color: #1A1D20;
+            --text-main: #F7F2EC;
+            --text-muted: #C8C2BA;
+            --accent: #5CCFC3;
+            --accent-hover: #7BDED6;
+            --accent-light: #183A3D;
+            --accent-light-text: #A6F0E8;
+            --border-color: #30363A;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.24);
+            --shadow-md: 0 8px 28px rgba(0,0,0,0.32);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .section {
+            padding: var(--space-xl) 0;
+            scroll-margin-top: 90px;
+        }
+
+        .section-header {
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+        }
+
+        /* Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-pill);
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--surface-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--accent-light);
+            color: var(--accent-light-text);
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chip-dark {
+            background-color: #F1F5F9;
+            color: #475569;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(251, 249, 246, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 19, 21, 0.9);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .lang-toggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .theme-toggle {
+            width: 38px;
+            height: 34px;
+            padding: 0;
+        }
+        
+        .lang-toggle:hover {
+            background: var(--surface-color);
+            border-color: var(--text-muted);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: calc(var(--space-xl) + 70px);
+            padding-bottom: var(--space-xl);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-stats-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        /* About Section */
+        .about-grid {
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-pill {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            background: var(--surface-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-pill::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .portrait-frame {
+            position: relative;
+            overflow: hidden;
+            height: 520px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 52% 48%;
+            display: block;
+        }
+
+        .portrait-caption {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .portrait-caption {
+            background: rgba(26, 29, 32, 0.86);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Skills Section */
+        .skill-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .workflow-container {
+            margin-top: var(--space-xl);
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            text-align: center;
+        }
+
+        .workflow-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+            font-weight: 500;
+        }
+
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: auto;
+            padding-bottom: 1rem; /* For scrollbar */
+        }
+
+        .w-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+        }
+
+        .w-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .w-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .w-arrow {
+            color: var(--border-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+        }
+
+        /* Projects Section */
+        .project-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-card p.desc {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-media {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #F8FAFC;
+        }
+
+        .project-media img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-media.single img {
+            height: 245px;
+            object-position: top center;
+        }
+
+        .project-media.app img {
+            height: 280px;
+            object-position: top center;
+        }
+
+        .phone-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: #111214;
+        }
+
+        .phone-strip img {
+            height: 245px;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: top center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .phone-strip.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-card .ai-usage {
+            background: var(--bg-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-card .ai-usage h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card ul {
+            list-style: none;
+        }
+
+        .project-card ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .project-card ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .project-tags {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Results Section */
+        .results-section {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .metric-value {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.5rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Why Haiyi Section */
+        .haiyi-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .haiyi-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .haiyi-content ul li {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .haiyi-content ul li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Contact Section */
+        .footer {
+            padding: var(--space-xl) 0 var(--space-md);
+            text-align: center;
+        }
+
+        .footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-info-item span:first-child {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-info-item span:last-child, .footer-info-item a {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .footer-info-item a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: var(--space-lg);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--surface-color);
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --space-xl: 4rem;
+            }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            
+            .hero {
+                padding-top: 100px;
+                text-align: center;
+            }
+            
+            .hero p { margin: 0 auto 2rem; }
+            
+            .hero-actions {
+                justify-content: center;
+                flex-direction: column;
+            }
+            
+            .hero-stats-card {
+                margin-top: 2rem;
+            }
+
+            .about-grid { gap: 2rem; }
+
+            .portrait-frame {
+                height: 440px;
+            }
+
+            .portrait-frame img {
+                object-position: 54% 50%;
+            }
+            
+            .workflow-steps {
+                justify-content: flex-start;
+            }
+
+            .phone-strip {
+                grid-template-columns: repeat(3, minmax(120px, 1fr));
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">IC</div>
+                <span>Isaac Cheok</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="#about" onclick="closeMenu()" data-en="About" data-zh="关于我">关于我</a>
+                    <a href="#skills" onclick="closeMenu()" data-en="Skills" data-zh="技能">技能</a>
+                    <a href="#projects" onclick="closeMenu()" data-en="Projects" data-zh="项目">项目</a>
+                    <a href="#results" onclick="closeMenu()" data-en="Results" data-zh="成果">成果</a>
+                    <a href="#why-haiyi" onclick="closeMenu()" data-en="Why Haiyi" data-zh="为什么选择海艺">为什么选择海艺</a>
+                    <a href="#contact" onclick="closeMenu()" data-en="Contact" data-zh="联系方式">联系方式</a>
+                </div>
+                <div class="nav-controls">
+                    <button class="lang-toggle" id="langToggle" aria-label="Toggle Language" onclick="toggleLanguage()">EN</button>
+                    <button class="lang-toggle theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode" onclick="toggleTheme()">☾</button>
+                    <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero container grid-2">
+        <div class="hero-content">
+            <span class="eyebrow" data-en="AI Content · Marketing · Product Thinking" data-zh="AI 内容 · 营销 · 产品思维">AI 内容 · 营销 · 产品思维</span>
+            <h1 data-en="Building with AI, not just talking about it." data-zh="用 AI 做实事，不只是说说而已。">用 AI 做实事，不只是说说而已。</h1>
+            <p data-en="I’m a Business Administration student at Singapore Polytechnic who uses AI as a creative, strategic, and technical collaborator across product experiments, automation, and digital marketing." data-zh="我是新加坡理工学院工商管理专业的学生，将 AI 作为创意、战略和技术上的得力助手，应用于产品实验、自动化和数字营销等领域。">我是新加坡理工学院工商管理专业的学生，将 AI 作为创意、战略和技术上的得力助手，应用于产品实验、自动化和数字营销等领域。</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary" data-en="View selected work" data-zh="查看项目">查看项目</a>
+                <a href="#why-haiyi" class="btn btn-secondary" data-en="Why Haiyi AI" data-zh="为什么选择海艺">为什么选择海艺</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-stats-card">
+                <div class="stat-item">
+                    <span class="stat-label" data-en="AI Projects Built" data-zh="已交付 AI 项目">已交付 AI 项目</span>
+                    <span class="stat-value">3</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-en="Campaign Views (DELTA)" data-zh="活动浏览量 (DELTA)">活动浏览量 (DELTA)</span>
+                    <span class="stat-value">6,306</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-en="Avg. Engagement Rate" data-zh="平均互动率">平均互动率</span>
+                    <span class="stat-value">33.3%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-en="TikTok Live Peak Viewers" data-zh="TikTok 直播峰值人数">TikTok 直播峰值人数</span>
+                    <span class="stat-value">227</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section container">
+        <div class="grid-2 about-grid">
+            <div class="about-text">
+                <h2 data-en="A marketing student with builder energy." data-zh="有动手能力的营销系学生。">有动手能力的营销系学生。</h2>
+                <p data-en="Currently studying Business Administration (Apr 2024 – May 2027 expected) at Singapore Polytechnic, I have hands-on experience in digital marketing, visual design, and live-event production. I directed a six-camera live broadcast for the Singapore Youth Flying Club, engaged with customers directly at Far East Flora, and continually bridge the gap between technical execution and business goals." data-zh="目前就读于新加坡理工学院工商管理专业（预计 2024 年 4 月至 2027 年 5 月），在数字营销、视觉设计和直播制作方面拥有丰富的实战经验。我曾为新加坡青年飞行俱乐部导播了一场六机位直播，在 Far East Flora 直接面对客户，并不断努力弥合技术执行与商业目标之间的差距。">目前就读于新加坡理工学院工商管理专业（预计 2024 年 4 月至 2027 年 5 月），在数字营销、视觉设计和直播制作方面拥有丰富的实战经验。我曾为新加坡青年飞行俱乐部导播了一场六机位直播，在 Far East Flora 直接面对客户，并不断努力弥合技术执行与商业目标之间的差距。</p>
+                <p data-en='I view AI not just as a tool for quick fixes, but as a "junior teammate" that enhances product strategy, UI coding, design workflows, and presentations in fast-moving, cross-functional environments.' data-zh="我不仅仅把 AI 看作解决燃眉之急的工具，而是把它当成一个“初级队友”，在快节奏、跨职能的环境中，它能全面提升产品策略、UI 代码编写、设计工作流以及方案展示。">我不仅仅把 AI 看作解决燃眉之急的工具，而是把它当成一个“初级队友”，在快节奏、跨职能的环境中，它能全面提升产品策略、UI 代码编写、设计工作流以及方案展示。</p>
+                <div class="about-pills">
+                    <div class="about-pill" data-en="Business + creativity" data-zh="商业与创意结合">商业与创意结合</div>
+                    <div class="about-pill" data-en="Cross-functional comfort" data-zh="适应跨职能合作">适应跨职能合作</div>
+                    <div class="about-pill" data-en="AI curiosity with discipline" data-zh="对 AI 充满好奇且保持严谨">对 AI 充满好奇且保持严谨</div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <figure class="portrait-frame">
+                    <img src="isaac-profile.jpg" alt="Isaac Cheok standing outside during overseas travel" loading="lazy">
+                    <figcaption class="portrait-caption">
+                        <span data-en="Singapore Polytechnic" data-zh="新加坡理工学院">新加坡理工学院</span>
+                        <span data-en="Business + AI builder" data-zh="商业与 AI 实干者">商业与 AI 实干者</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section container">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Capabilities" data-zh="技能">技能</h2>
+            <p data-en="Combining marketing fundamentals with modern AI toolchains." data-zh="将营销基础与现代 AI 工具链相结合。">将营销基础与现代 AI 工具链相结合。</p>
+        </div>
+        
+        <div class="grid-4">
+            <div class="card skill-card">
+                <h3 data-en="AI-Assisted Content Operations" data-zh="AI 辅助内容运营">AI 辅助内容运营</h3>
+                <p data-en="Scaling content creation, generating structured presentations, and drafting strategic scripts." data-zh="扩展内容创作规模，生成结构化的展示文案，并起草战略性脚本。">扩展内容创作规模，生成结构化的展示文案，并起草战略性脚本。</p>
+                <div>
+                    <span class="chip">ChatGPT</span>
+                    <span class="chip">Claude</span>
+                    <span class="chip" data-en="Prompt Eng." data-zh="Prompt 编写">Prompt 编写</span>
+                </div>
+            </div>
+            
+            <div class="card skill-card">
+                <h3 data-en="Marketing & Visual Comms" data-zh="营销与视觉传达">营销与视觉传达</h3>
+                <p data-en="Producing social assets, banners, thumbnails, and managing live broadcast productions." data-zh="制作社交媒体物料、横幅、缩略图，并统筹管理直播制作环节。">制作社交媒体物料、横幅、缩略图，并统筹管理直播制作环节。</p>
+                <div>
+                    <span class="chip">Canva</span>
+                    <span class="chip" data-en="Live Broadcast" data-zh="直播导播">直播导播</span>
+                    <span class="chip" data-en="Social Media" data-zh="社交媒体">社交媒体</span>
+                </div>
+            </div>
+            
+            <div class="card skill-card">
+                <h3 data-en="Product & Workflow Thinking" data-zh="产品与工作流思维">产品与工作流思维</h3>
+                <p data-en="Moving beyond isolated assets to structure end-to-end product features and user journeys." data-zh="不局限于孤立的输出物，而是系统化构建端到端的产品功能与用户旅程。">不局限于孤立的输出物，而是系统化构建端到端的产品功能与用户旅程。</p>
+                <div>
+                    <span class="chip">UI/UX</span>
+                    <span class="chip" data-en="Product Strategy" data-zh="产品策略">产品策略</span>
+                    <span class="chip" data-en="Wireframing" data-zh="线框图">线框图</span>
+                </div>
+            </div>
+            
+            <div class="card skill-card">
+                <h3 data-en="Builder Mindset" data-zh="实干者思维">实干者思维</h3>
+                <p data-en="Collaborating with AI agents to script automations, build dashboards, and deploy apps." data-zh="与 AI 智能体协作编写自动化脚本、搭建 dashboard 并部署应用。">与 AI 智能体协作编写自动化脚本、搭建 dashboard 并部署应用。</p>
+                <div>
+                    <span class="chip chip-dark">React</span>
+                    <span class="chip chip-dark">Python</span>
+                    <span class="chip chip-dark">Vercel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-container">
+            <div class="workflow-title" data-en="My AI-Assisted Workflow" data-zh="我的 AI 辅助工作流">我的 AI 辅助工作流</div>
+            <div class="workflow-steps">
+                <div class="w-step">
+                    <div class="w-circle">1</div>
+                    <span class="w-label" data-en="Brief" data-zh="需求确认">需求确认</span>
+                </div>
+                <div class="w-arrow">→</div>
+                <div class="w-step">
+                    <div class="w-circle">2</div>
+                    <span class="w-label" data-en="Ideate w/ AI" data-zh="AI 辅助构思">AI 辅助构思</span>
+                </div>
+                <div class="w-arrow">→</div>
+                <div class="w-step">
+                    <div class="w-circle">3</div>
+                    <span class="w-label" data-en="Constrain" data-zh="设定限制">设定限制</span>
+                </div>
+                <div class="w-arrow">→</div>
+                <div class="w-step">
+                    <div class="w-circle">4</div>
+                    <span class="w-label" data-en="Build" data-zh="构建开发">构建开发</span>
+                </div>
+                <div class="w-arrow">→</div>
+                <div class="w-step">
+                    <div class="w-circle">5</div>
+                    <span class="w-label" data-en="Validate" data-zh="测试验证">测试验证</span>
+                </div>
+                <div class="w-arrow">→</div>
+                <div class="w-step">
+                    <div class="w-circle">6</div>
+                    <span class="w-label" data-en="Improve" data-zh="迭代优化">迭代优化</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section container">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Projects where AI was part of the process." data-zh="AI 深度参与的项目。">AI 深度参与的项目。</h2>
+            <p data-en="Proof that I give clear constraints and treat AI as a product designer, analyst, and coding assistant." data-zh="通过明确的指令和边界，我让 AI 胜任产品设计、数据分析及代码助手。">通过明确的指令和边界，我让 AI 胜任产品设计、数据分析及代码助手。</p>
+        </div>
+
+        <div class="grid-3">
+            <article class="card project-card">
+                <span class="label" data-en="Entrepreneurship FYP" data-zh="创业毕业项目">创业毕业项目</span>
+                <h3>FLUX</h3>
+                <p class="desc" data-en="A social-first wellness accountability app where young adults form small squads, complete daily missions, track health metrics, and encourage each other via a shared feed." data-zh="一款主打社交的健康打卡应用，年轻用户可以组建小队、完成日常任务、追踪 Apple Health 数据，并通过动态流互相激励。">一款主打社交的健康打卡应用，年轻用户可以组建小队、完成日常任务、追踪 Apple Health 数据，并通过动态流互相激励。</p>
+
+                <div class="project-media app">
+                    <img src="flux-app.jpg" alt="FLUX squad wellness dashboard screenshot" loading="lazy">
+                </div>
+                
+                <div class="ai-usage">
+                    <h4 data-en="How I used AI" data-zh="我如何使用 AI">我如何使用 AI</h4>
+                    <ul>
+                        <li data-en="Clarified app differentiation vs competitors using market analysis prompts." data-zh="利用市场分析 prompt 梳理应用与竞品的差异化定位。">利用市场分析 prompt 梳理应用与竞品的差异化定位。</li>
+                        <li data-en="Generated detailed logic prompts for Xcode UI/UX, defining visual rules, Apple Health sync, and feature interactions." data-zh="为 Xcode UI/UX 生成详细的逻辑 prompt，定义视觉规范、Apple Health 同步及功能交互。">为 Xcode UI/UX 生成详细的逻辑 prompt，定义视觉规范、Apple Health 同步及功能交互。</li>
+                        <li data-en="Structured presentation slides, revenue models, and adoption strategy scripts." data-zh="构建演示幻灯片框架、商业模式及获客策略脚本。">构建演示幻灯片框架、商业模式及获客策略脚本。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-tags">
+                    <span class="chip" data-en="Strategy" data-zh="产品策略">产品策略</span>
+                    <span class="chip" data-en="UI/UX Prompts" data-zh="UI/UX Prompt">UI/UX Prompt</span>
+                </div>
+            </article>
+
+            <article class="card project-card">
+                <span class="label" data-en="Personal Product Build" data-zh="个人产品开发">个人产品开发</span>
+                <h3>MonoTracker</h3>
+                <p class="desc" data-en="A full-stack, mobile-first web app to track competitive board game seasons, featuring live leaderboards, guest player tracking, win-rate stats, and a custom rules DB." data-zh="一款全栈、移动端优先的 Web 应用，用于追踪桌游竞技赛季，包含实时排行榜、访客记录、胜率统计以及自定义规则库。">一款全栈、移动端优先的 Web 应用，用于追踪桌游竞技赛季，包含实时排行榜、访客记录、胜率统计以及自定义规则库。</p>
+
+                <div class="project-media app">
+                    <img src="monotracker-app.jpg" alt="MonoTracker leaderboard screen screenshot" loading="lazy">
+                </div>
+                
+                <div class="ai-usage">
+                    <h4 data-en="How I used AI" data-zh="我如何使用 AI">我如何使用 AI</h4>
+                    <ul>
+                        <li data-en="Paired with an AI coding agent to generate React components and set up Vercel deployment workflows." data-zh="与 AI 编程助手结对生成 React 组件，并配置 Vercel 部署工作流。">与 AI 编程助手结对生成 React 组件，并配置 Vercel 部署工作流。</li>
+                        <li data-en="Used AI to refactor complex scoring logic and debug mobile layout issues." data-zh="利用 AI 重构复杂的计分逻辑并调试移动端排版问题。">利用 AI 重构复杂的计分逻辑并调试移动端排版问题。</li>
+                        <li data-en="Maintained strict product control by giving requirements and correcting AI assumptions iteratively." data-zh="通过下达清晰的需求并持续纠正 AI 的错误假设，保持对产品的绝对把控。">通过下达清晰的需求并持续纠正 AI 的错误假设，保持对产品的绝对把控。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-tags">
+                    <span class="chip chip-dark">React + Vite</span>
+                    <span class="chip chip-dark">Firebase</span>
+                </div>
+            </article>
+
+            <article class="card project-card">
+                <span class="label" data-en="Real-world Utility Tool" data-zh="解决实际问题的工具">解决实际问题的工具</span>
+                <h3>ActiveSG Gym Tracker</h3>
+                <p class="desc" data-en="An automated system combining a Python Playwright scraper and a React dashboard to bypass Cloudflare and track real-time and historical crowd levels at Clementi ActiveSG Gym." data-zh="结合 Python Playwright 爬虫与 React dashboard 的自动化系统，用于绕过 Cloudflare 限制并追踪 Clementi ActiveSG 健身房的实时与历史客流量。">结合 Python Playwright 爬虫与 React dashboard 的自动化系统，用于绕过 Cloudflare 限制并追踪 Clementi ActiveSG 健身房的实时与历史客流量。</p>
+
+                <div class="project-media single">
+                    <img src="activesg-tracker.jpg" alt="ActiveSG Gym Tracker dashboard screenshot" loading="lazy">
+                </div>
+                
+                <div class="ai-usage">
+                    <h4 data-en="How I used AI" data-zh="我如何使用 AI">我如何使用 AI</h4>
+                    <ul>
+                        <li data-en="Designed system architecture and wrote/debugged the scraper to handle Cloudflare blocks." data-zh="设计系统架构，并编写/调试爬虫以应对 Cloudflare 的拦截。">设计系统架构，并编写/调试爬虫以应对 Cloudflare 的拦截。</li>
+                        <li data-en="Configured GitHub Actions for hourly automated data collection." data-zh="配置 GitHub Actions 实现每小时自动抓取数据。">配置 GitHub Actions 实现每小时自动抓取数据。</li>
+                        <li data-en="Interpreted failure logs with AI to define reliability metrics and shape the final user dashboard." data-zh="结合 AI 分析报错日志，定义稳定性指标，最终落地用户 dashboard。">结合 AI 分析报错日志，定义稳定性指标，最终落地用户 dashboard。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-tags">
+                    <span class="chip chip-dark">Python (Playwright)</span>
+                    <span class="chip chip-dark">GitHub Actions</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="results" class="section results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="I also bring real marketing performance experience." data-zh="我也有经过验证的营销实战经验。">我也有经过验证的营销实战经验。</h2>
+                <p data-en='Project DELTA – "Cradle of Songs" (Parent-child music bonding programme)' data-zh="DELTA 项目 – “Cradle of Songs”（亲子音乐互动项目）">DELTA 项目 – “Cradle of Songs”（亲子音乐互动项目）</p>
+            </div>
+            
+            <div class="grid-4">
+                <div class="metric-card">
+                    <div class="metric-value">6,306</div>
+                    <div class="metric-label" data-en="Total Views (IG + TikTok)" data-zh="总播放量 (IG + TikTok)">总播放量 (IG + TikTok)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1,313</div>
+                    <div class="metric-label" data-en="Total Reach" data-zh="总触达人数">总触达人数</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">33.3%</div>
+                    <div class="metric-label" data-en="Avg Engagement Rate" data-zh="平均互动率">平均互动率</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">227</div>
+                    <div class="metric-label" data-en="Unique Live Viewers (TikTok)" data-zh="TikTok 单场直播观众数">TikTok 单场直播观众数</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-haiyi" class="section container">
+        <div class="section-header">
+            <h2 class="section-title" data-en="Why I want to intern at Haiyi AI (海艺)." data-zh="为什么我想在海艺 AI 实习。">为什么我想在海艺 AI 实习。</h2>
+        </div>
+        
+        <div class="haiyi-content">
+            <p data-en="I am deliberately seeking out a fast-paced, product-focused AI company targeting creative users. Haiyi’s focus on generative art and creative platforms aligns perfectly with my background bridging visual design, content creation, and product development." data-zh="我非常有目的性地在寻找一家节奏快、以产品为导向、且服务于创意用户的 AI 公司。海艺在生成式艺术和创意平台领域的专注，与我涵盖视觉设计、内容创作和产品开发的背景完美契合。">我非常有目的性地在寻找一家节奏快、以产品为导向、且服务于创意用户的 AI 公司。海艺在生成式艺术和创意平台领域的专注，与我涵盖视觉设计、内容创作和产品开发的背景完美契合。</p>
+            <ul>
+                <li data-is-html="true" data-en="<strong>I care about applied AI:</strong> I don't just follow AI news; I care about how people actually use these tools to create, build, and solve problems in their daily workflows." data-zh="<strong>我看重 AI 落地应用：</strong>我不仅仅是在看 AI 的新闻，我真正关心的是人们如何将这些工具融入日常工作流，去创作、去搭建并解决实际问题。"><strong>我看重 AI 落地应用：</strong>我不仅仅是在看 AI 的新闻，我真正关心的是人们如何将这些工具融入日常工作流，去创作、去搭建并解决实际问题。</li>
+                <li data-is-html="true" data-en="<strong>I am already a heavy AI user:</strong> Whether it is brainstorming marketing strategy, writing UI code, structuring databases, or generating design constraints, I understand how to communicate with models to get production-ready results." data-zh="<strong>我是 AI 的深度用户：</strong>无论是进行营销策略头脑风暴、编写 UI 代码、设计数据库架构，还是设定设计规范，我都懂得如何与模型对话，以获取生产级别的结果。"><strong>我是 AI 的深度用户：</strong>无论是进行营销策略头脑风暴、编写 UI 代码、设计数据库架构，还是设定设计规范，我都懂得如何与模型对话，以获取生产级别的结果。</li>
+                <li data-is-html="true" data-en="<strong>I want to learn from high standards:</strong> I know Haiyi is demanding. I want to be in an environment that pushes my understanding of digital growth, user-facing content, and creative tool workflows for communities like anime and illustration creators." data-zh="<strong>我渴望在高标准中成长：</strong>我知道海艺的要求很高。我希望置身于这样的环境中，逼迫自己深化对数字增长、面向用户的内容输出以及为二次元、插画等创作者社区构建工具工作流的理解。"><strong>我渴望在高标准中成长：</strong>我知道海艺的要求很高。我希望置身于这样的环境中，逼迫自己深化对数字增长、面向用户的内容输出以及为二次元、插画等创作者社区构建工具工作流的理解。</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer container">
+        <h2 data-en="Open to AI content, product, and digital growth opportunities." data-zh="正在寻找 AI 内容、产品及数字增长方向的实习机会。">正在寻找 AI 内容、产品及数字增长方向的实习机会。</h2>
+        
+        <div class="footer-info">
+            <div class="footer-info-item">
+                <span data-en="Location" data-zh="地点">地点</span>
+                <span data-en="Singapore" data-zh="新加坡">新加坡</span>
+            </div>
+            <div class="footer-info-item">
+                <span data-en="Availability" data-zh="实习时间">实习时间</span>
+                <span data-en="Overseas Internship (Late 2026)" data-zh="2026 年底起开放海外实习。">2026 年底起开放海外实习。</span>
+            </div>
+            <div class="footer-info-item">
+                <span data-en="Languages" data-zh="语言">语言</span>
+                <span data-en="English (Native) / Mandarin (Conversational)" data-zh="英文（母语） / 中文（商务对话）">英文（母语） / 中文（商务对话）</span>
+            </div>
+            <div class="footer-info-item">
+                <span data-en="Professional" data-zh="职业链接">职业链接</span>
+                <a href="https://linkedin.com/in/isaac-cheok" target="_blank">linkedin.com/in/isaac-cheok</a>
+            </div>
+        </div>
+        
+        <div class="copyright" data-en="&copy; 2026 Isaac Cheok. Designed & built intentionally for Haiyi (海艺)." data-zh="这是一个为实习申请量身制作的作品集网站——足够简洁让招聘方快速了解，足够具体让科技公司感兴趣。">
+            这是一个为实习申请量身制作的作品集网站——足够简洁让招聘方快速了解，足够具体让科技公司感兴趣。
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle Logic
+        let currentLang = 'zh'; // Default to Chinese
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+                if (el.hasAttribute('data-is-html')) {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            const toggleBtn = document.getElementById('langToggle');
+            if (toggleBtn) {
+                // If currently in Chinese, show "EN" to allow switching to English
+                toggleBtn.textContent = lang === 'zh' ? 'EN' : '中文';
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            setLanguage(currentLang);
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.textContent = theme === 'dark' ? '☀' : '☾';
+                toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        // Initialize language state on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            setTheme('light');
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
