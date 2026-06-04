@@ -72,6 +72,7 @@
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -748,40 +749,170 @@
             .hero h1 { font-size: 3.5rem; }
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--surface-color);
-                padding: 1.5rem;
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: var(--shadow-sm);
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
         }
 
         @media (max-width: 768px) {
             :root {
                 --space-xl: 4rem;
+                --space-lg: 2.5rem;
+                --space-md: 1.25rem;
             }
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            body {
+                min-width: 0;
+                font-size: 16px;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding-inline: 1rem;
+            }
+
+            .section {
+                padding: 3.5rem 0;
+                scroll-margin-top: 78px;
+            }
+
+            .section-title {
+                font-size: 2.45rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+
+            .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+            #skills > .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.25rem;
+            }
+
+            .navbar {
+                overflow: visible;
+            }
+
+            .nav-container {
+                position: relative;
+                height: 64px;
+                gap: 0.75rem;
+            }
+
+            .logo {
+                flex: 1 1 auto;
+                min-width: 0;
+                font-size: 1.25rem;
+            }
+
+            .logo span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .nav-right {
+                gap: 0;
+                margin-left: auto;
+            }
+
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .lang-toggle,
+            .theme-toggle,
+            .menu-toggle {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .lang-toggle {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.875rem;
+            }
+
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                order: -1;
+                width: 44px;
+                height: 44px;
+                margin-right: 0.35rem;
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-pill);
+                background: transparent;
+                font-size: 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 1rem;
+                right: 1rem;
+                flex-direction: column;
+                gap: 0;
+                padding: 0.75rem;
+                background: var(--surface-color);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-md);
+                text-align: left;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                min-height: 48px;
+                padding: 0 1rem;
+                border-radius: 8px;
+                font-size: 1rem;
+                color: var(--text-main);
+            }
+
+            .nav-links a:hover {
+                background: var(--bg-color);
+            }
             
             .hero {
-                padding-top: 100px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                min-height: auto;
+                padding-top: 96px;
+                padding-bottom: 3.5rem;
                 text-align: center;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.45rem, 14vw, 2.8rem);
+                letter-spacing: 0;
+            }
+
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
             }
             
             .hero p { margin: 0 auto 2rem; }
@@ -789,29 +920,165 @@
             .hero-actions {
                 justify-content: center;
                 flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
             }
             
             .hero-stats-card {
                 margin-top: 2rem;
+                padding: 1.25rem;
+                width: 100%;
             }
 
-            .about-grid { gap: 2rem; }
+            .btn {
+                min-height: 44px;
+                font-size: 0.95rem;
+            }
+
+            .stat-label,
+            .stat-value,
+            .eyebrow,
+            .chip,
+            .w-label,
+            .portrait-caption,
+            .portrait-caption span,
+            .skill-card p,
+            .project-card .label,
+            .project-card p.desc,
+            .project-card ul li,
+            .project-card .ai-usage h4,
+            .metric-label,
+            .copyright {
+                font-size: 0.875rem;
+            }
+
+            .about-grid {
+                gap: 2rem;
+            }
+
+            .about-visual {
+                order: -1;
+            }
 
             .portrait-frame {
-                height: 440px;
+                width: 160px;
+                height: 160px;
+                max-width: 160px;
+                margin: 0 auto;
+                border-radius: 50%;
             }
 
             .portrait-frame img {
-                object-position: 54% 50%;
+                object-position: 54% 46%;
+            }
+
+            .portrait-caption {
+                display: none;
+            }
+
+            .about-text h2 {
+                font-size: 2.35rem;
+                text-align: center;
+            }
+
+            .about-pills {
+                justify-content: center;
+            }
+
+            .skill-card h3 {
+                font-size: 1rem;
             }
             
             .workflow-steps {
-                justify-content: flex-start;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1rem;
+                overflow: visible;
+                padding-bottom: 0;
             }
 
-            .phone-strip {
-                grid-template-columns: repeat(3, minmax(120px, 1fr));
-                overflow-x: auto;
+            .w-step {
+                min-width: 0;
+                padding: 1rem 0.5rem;
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                background: var(--bg-color);
+            }
+
+            .w-arrow {
+                display: none;
+            }
+
+            .project-media img,
+            .project-media.single img,
+            .project-media.app img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                object-position: top center;
+            }
+
+            .metric-card {
+                padding: 1.25rem 0.75rem;
+            }
+
+            .metric-value {
+                font-size: 2.5rem;
+            }
+
+            .haiyi-content,
+            .haiyi-content p,
+            .haiyi-content ul li {
+                font-size: 1rem;
+            }
+
+            .footer h2 {
+                font-size: 2.2rem;
+            }
+
+            .footer-info {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .footer-info-item span:first-child {
+                font-size: 0.875rem;
+            }
+
+            .footer-info-item span:last-child,
+            .footer-info-item a {
+                font-size: 1rem;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title,
+            .about-text h2,
+            .footer h2 {
+                font-size: 2.05rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.2rem, 13vw, 2.6rem);
+            }
+
+            .grid-4 {
+                gap: 0.75rem;
+            }
+
+            .metric-value {
+                font-size: 2.15rem;
+            }
+
+            .card,
+            .workflow-container {
+                padding: 1rem;
             }
         }
     </style>
@@ -836,7 +1103,7 @@
                 <div class="nav-controls">
                     <button class="lang-toggle" id="langToggle" aria-label="Toggle Language" onclick="toggleLanguage()">EN</button>
                     <button class="lang-toggle theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode" onclick="toggleTheme()">☾</button>
-                    <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu()">☰</button>
                 </div>
             </div>
         </div>
@@ -1181,12 +1448,20 @@
         // Mobile Menu Toggle
         function toggleMenu() {
             const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
+            const menuBtn = document.getElementById('menuToggle');
+            const isOpen = nav.classList.toggle('active');
+            if (menuBtn) {
+                menuBtn.setAttribute('aria-expanded', String(isOpen));
+            }
         }
 
         function closeMenu() {
             const nav = document.getElementById('navLinks');
             nav.classList.remove('active');
+            const menuBtn = document.getElementById('menuToggle');
+            if (menuBtn) {
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     </script>
 </body>
