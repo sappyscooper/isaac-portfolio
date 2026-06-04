@@ -582,6 +582,62 @@
             object-position: top center;
         }
 
+        .ecommerce-card {
+            grid-column: span 2;
+        }
+
+        .project-media-showcase {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr);
+            gap: 0.5rem;
+            margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 1rem;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            overflow: hidden;
+            background: #111214;
+        }
+
+        .showcase-image-stack {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .showcase-mobile-images {
+            display: contents;
+        }
+
+        .project-media-showcase img,
+        .project-media-showcase video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            background: #111214;
+        }
+
+        .project-media-showcase img {
+            aspect-ratio: 1 / 1;
+            height: auto;
+        }
+
+        .showcase-video {
+            min-height: 100%;
+        }
+
+        .showcase-video video {
+            height: 100%;
+            aspect-ratio: 9 / 16;
+        }
+
+        .media-captions {
+            margin-bottom: 1.5rem;
+        }
+
+        .media-caption {
+            color: var(--color-text-muted, var(--text-muted));
+            font-size: var(--text-xs, 0.8rem);
+            margin-top: var(--space-2, 0.5rem);
+            margin-bottom: 0;
+        }
+
         .phone-strip {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -796,6 +852,10 @@
 
             #skills > .grid-4 {
                 grid-template-columns: 1fr;
+            }
+
+            .ecommerce-card {
+                grid-column: auto;
             }
 
             .card {
@@ -1026,6 +1086,31 @@
                 object-position: top center;
             }
 
+            .project-media-showcase {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                margin: calc(-1 * 1.35rem) calc(-1 * 1.35rem) 1rem;
+            }
+
+            .showcase-image-stack {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-rows: none;
+            }
+
+            .showcase-video {
+                width: 100%;
+            }
+
+            .showcase-video video {
+                height: auto;
+                aspect-ratio: 9 / 16;
+            }
+
+            .media-caption {
+                font-size: 0.875rem;
+            }
+
             .metric-card {
                 padding: 1.25rem 0.75rem;
             }
@@ -1083,6 +1168,10 @@
             .card,
             .workflow-container {
                 padding: 1.25rem;
+            }
+
+            .project-media-showcase {
+                margin: calc(-1 * 1.25rem) calc(-1 * 1.25rem) 1rem;
             }
         }
     </style>
@@ -1329,6 +1418,44 @@
                 <div class="project-tags">
                     <span class="chip chip-dark">Python (Playwright)</span>
                     <span class="chip chip-dark">GitHub Actions</span>
+                </div>
+            </article>
+
+            <article class="card project-card ecommerce-card">
+                <div class="project-media-showcase" aria-label="E-commerce AI creative media showcase">
+                    <div class="showcase-image-stack">
+                        <img src="ecommerce-gemini-prompt.jpg" alt="Gemini mobile prompt interface generating product video" loading="lazy">
+                        <img src="ecommerce-capcut-workflow.jpg" alt="CapCut editing timeline assembling AI-generated clips" loading="lazy">
+                    </div>
+                    <div class="showcase-video">
+                        <video src="ecommerce-final-ad.mp4" controls muted loop playsinline></video>
+                    </div>
+                </div>
+
+                <div class="media-captions">
+                    <p class="media-caption" data-en="Gemini prompt interface (left) · CapCut editing timeline (right)" data-zh="Gemini 提示词界面（左）· CapCut 剪辑时间轴（右）">Gemini 提示词界面（左）· CapCut 剪辑时间轴（右）</p>
+                    <p class="media-caption" data-en="Final short-form ad — edited by my brother using my AI-generated clips" data-zh="最终短视频广告 —— 由我兄长使用 AI 生成素材剪辑而成">最终短视频广告 —— 由我兄长使用 AI 生成素材剪辑而成</p>
+                </div>
+
+                <span class="label" data-en="E-commerce Creative · Family Business" data-zh="电商创意 · 家庭项目">电商创意 · 家庭项目</span>
+                <h3 data-en="AI-Generated Product Ad Creative" data-zh="AI 生成的产品广告素材">AI 生成的产品广告素材</h3>
+                <p class="desc" data-en="I supported my brother's dropshipping business by using AI to generate cinematic product videos for a red light therapy device. These AI-generated clips were then used as raw creative assets — he edited them together in CapCut to produce a short-form ad for the product." data-zh="我协助兄长的代购业务，使用 AI 为一款红光疗愈手持设备生成了高质感产品视频。这些 AI 生成的视频片段随后被用作素材，由他在 CapCut 中剪辑成最终的短视频广告。">我协助兄长的代购业务，使用 AI 为一款红光疗愈手持设备生成了高质感产品视频。这些 AI 生成的视频片段随后被用作素材，由他在 CapCut 中剪辑成最终的短视频广告。</p>
+                
+                <div class="ai-usage">
+                    <h4 data-en="How I used AI" data-zh="我如何使用 AI">我如何使用 AI</h4>
+                    <ul>
+                        <li data-en="Used Gemini to generate cinematic product footage from a detailed text prompt describing the product's look, feel, and visual style." data-zh="使用 Gemini，通过详细描述产品外观、质感和视觉风格的文字提示，生成了具有电影质感的产品画面。">使用 Gemini，通过详细描述产品外观、质感和视觉风格的文字提示，生成了具有电影质感的产品画面。</li>
+                        <li data-en="Provided precise prompt direction covering product appearance, lighting, camera movement, and mood to get usable commercial-quality output." data-zh="在提示词中精准指定产品外形、灯光氛围、镜头运动和整体基调，以获得可用于商业用途的视频输出。">在提示词中精准指定产品外形、灯光氛围、镜头运动和整体基调，以获得可用于商业用途的视频输出。</li>
+                        <li data-en="The AI-generated clips were passed directly into a real ad editing workflow, proving that good prompt output can slot into a production pipeline." data-zh="生成的视频片段直接进入真实的广告剪辑流程，证明高质量的 AI 输出可以无缝融入内容制作管线。">生成的视频片段直接进入真实的广告剪辑流程，证明高质量的 AI 输出可以无缝融入内容制作管线。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-tags">
+                    <span class="chip">Gemini</span>
+                    <span class="chip" data-en="AI Video Generation" data-zh="AI 视频生成">AI 视频生成</span>
+                    <span class="chip" data-en="Prompt Engineering" data-zh="Prompt 工程">Prompt 工程</span>
+                    <span class="chip">CapCut</span>
+                    <span class="chip" data-en="E-commerce" data-zh="电商">电商</span>
                 </div>
             </article>
         </div>
