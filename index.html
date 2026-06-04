@@ -554,6 +554,11 @@
             margin-bottom: 1.5rem;
         }
 
+        #projects > .grid-3 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: stretch;
+        }
+
         .project-media {
             margin-bottom: 1.5rem;
             border-radius: 10px;
@@ -582,13 +587,9 @@
             object-position: top center;
         }
 
-        .ecommerce-card {
-            grid-column: span 2;
-        }
-
         .project-media-showcase {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr);
+            grid-template-columns: 1fr;
             gap: 0.5rem;
             margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 1rem;
             border-radius: var(--radius-md) var(--radius-md) 0 0;
@@ -598,6 +599,7 @@
 
         .showcase-image-stack {
             display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 0.5rem;
         }
 
@@ -619,11 +621,15 @@
         }
 
         .showcase-video {
-            min-height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: #111214;
         }
 
         .showcase-video video {
-            height: 100%;
+            width: min(100%, 320px);
+            height: auto;
             aspect-ratio: 9 / 16;
         }
 
@@ -848,14 +854,14 @@
 
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
 
+            #projects > .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
             .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
             #skills > .grid-4 {
                 grid-template-columns: 1fr;
-            }
-
-            .ecommerce-card {
-                grid-column: auto;
             }
 
             .card {
@@ -1093,8 +1099,6 @@
             }
 
             .showcase-image-stack {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
                 grid-template-rows: none;
             }
 
@@ -1103,6 +1107,7 @@
             }
 
             .showcase-video video {
+                width: 100%;
                 height: auto;
                 aspect-ratio: 9 / 16;
             }
@@ -1216,7 +1221,7 @@
             <div class="hero-stats-card">
                 <div class="stat-item">
                     <span class="stat-label" data-en="AI Projects Built" data-zh="已交付 AI 项目">已交付 AI 项目</span>
-                    <span class="stat-value">3</span>
+                    <span class="stat-value">4</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label" data-en="Campaign Views (DELTA)" data-zh="活动浏览量 (DELTA)">活动浏览量 (DELTA)</span>
@@ -1424,8 +1429,8 @@
             <article class="card project-card ecommerce-card">
                 <div class="project-media-showcase" aria-label="E-commerce AI creative media showcase">
                     <div class="showcase-image-stack">
-                        <img src="ecommerce-capcut-workflow.jpg" alt="CapCut editing timeline assembling AI-generated clips" loading="lazy">
-                        <img src="ecommerce-gemini-prompt.jpg" alt="Gemini mobile prompt interface generating product video" loading="lazy">
+                        <img src="ecommerce-gemini-prompt.jpg" alt="CapCut editing timeline assembling AI-generated clips" loading="lazy">
+                        <img src="ecommerce-capcut-workflow.jpg" alt="Gemini mobile prompt interface generating product video" loading="lazy">
                     </div>
                     <div class="showcase-video">
                         <video src="ecommerce-final-ad.mp4" controls muted loop playsinline></video>
