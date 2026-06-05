@@ -1179,6 +1179,365 @@
                 margin: calc(-1 * 1.25rem) calc(-1 * 1.25rem) 1rem;
             }
         }
+
+        @media print {
+            /* ---- PAGE SETUP ---- */
+            @page {
+                size: A4 portrait;
+                margin: 18mm 16mm 18mm 16mm;
+            }
+
+            /* ---- FORCE LIGHT MODE ---- */
+            html,
+            [data-theme="dark"] {
+                --color-bg: #ffffff !important;
+                --color-surface: #f7f6f2 !important;
+                --color-surface-2: #f3f0ec !important;
+                --color-surface-offset: #eeebe6 !important;
+                --color-border: #d4d1ca !important;
+                --color-text: #28251d !important;
+                --color-text-muted: #6f6b64 !important;
+                --color-text-faint: #a8a39b !important;
+                --color-primary: #01696f !important;
+                --bg-color: #ffffff !important;
+                --surface-color: #f7f6f2 !important;
+                --text-main: #28251d !important;
+                --text-muted: #6f6b64 !important;
+                --accent: #01696f !important;
+                --accent-hover: #01696f !important;
+                --accent-light: #f3f0ec !important;
+                --accent-light-text: #01696f !important;
+                --border-color: #d4d1ca !important;
+                background: #ffffff !important;
+                color: #28251d !important;
+            }
+
+            /* ---- HIDE INTERACTIVE / SCREEN-ONLY ELEMENTS ---- */
+            .site-header,
+            .navbar,
+            .nav-container,
+            .theme-toggle,
+            [data-theme-toggle],
+            [data-lang-toggle],
+            .lang-toggle,
+            .hamburger,
+            .menu-toggle,
+            .mobile-nav,
+            .nav-links,
+            .hero-actions,
+            button,
+            nav {
+                display: none !important;
+            }
+
+            /* ---- RESET LAYOUT TO SINGLE COLUMN ---- */
+            body {
+                font-size: 10pt;
+                line-height: 1.55;
+                background: #ffffff !important;
+                color: #28251d !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                overflow: visible !important;
+            }
+
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Convert all multi-column grids to single column */
+            .hero-grid,
+            .about-layout,
+            .skills-grid,
+            .projects-grid,
+            .result-grid,
+            .future-grid,
+            .contact-grid,
+            .workflow,
+            [class*="grid"],
+            [class*="layout"] {
+                display: block !important;
+                grid-template-columns: none !important;
+                columns: none !important;
+            }
+
+            /* ---- SECTION SPACING ---- */
+            .section,
+            .hero {
+                padding: 14pt 0 10pt 0 !important;
+                min-height: unset !important;
+                break-inside: auto;
+                page-break-inside: auto;
+            }
+
+            .section-header {
+                margin-bottom: 10pt !important;
+                text-align: left !important;
+            }
+
+            /* ---- HEADINGS ---- */
+            h1,
+            h2,
+            h3,
+            h4 {
+                break-after: avoid;
+                orphans: 3;
+                widows: 3;
+                color: #28251d !important;
+            }
+
+            p,
+            li,
+            span {
+                color: #6f6b64 !important;
+            }
+
+            .section-title {
+                font-size: 18pt !important;
+                margin-bottom: 6pt !important;
+            }
+
+            /* ---- CARDS ---- */
+            .card,
+            .skill-card,
+            .project-card,
+            .result-card,
+            .metric-card,
+            .panel,
+            .hero-card,
+            .hero-stats-card,
+            .workflow-container {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 1px solid #d4d1ca !important;
+                box-shadow: none !important;
+                margin-bottom: 10pt !important;
+                padding: 10pt !important;
+                background: #f7f6f2 !important;
+                border-radius: 6pt !important;
+                transform: none !important;
+                height: auto !important;
+            }
+
+            .project-card .ai-usage {
+                background: #ffffff !important;
+                border: 1px solid #e4e0d8 !important;
+                margin-bottom: 8pt !important;
+                padding: 8pt !important;
+            }
+
+            /* ---- IMAGES ---- */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                break-inside: avoid;
+            }
+
+            /* Project card top images — keep them but limit height so they don't eat pages */
+            .project-card img:first-child,
+            .project-media img,
+            .project-media.single img,
+            .project-media.app img,
+            .project-media-showcase img {
+                max-height: 120pt !important;
+                width: 100% !important;
+                object-fit: cover !important;
+                object-position: top center !important;
+                border-radius: 4pt 4pt 0 0 !important;
+            }
+
+            .project-media,
+            .project-media-showcase {
+                margin: 0 0 8pt 0 !important;
+                border-radius: 4pt !important;
+                border: 1px solid #d4d1ca !important;
+                background: #ffffff !important;
+            }
+
+            .project-media-showcase,
+            .showcase-image-stack {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 4pt !important;
+            }
+
+            .showcase-video {
+                display: block !important;
+                grid-column: 1 / -1 !important;
+                background: #ffffff !important;
+            }
+
+            /* Profile photo in about section */
+            .about-layout img,
+            [class*="profile"] img,
+            .portrait-frame img {
+                max-width: 100pt !important;
+                max-height: 100pt !important;
+                border-radius: 50% !important;
+                display: block !important;
+                margin: 0 auto 10pt auto !important;
+            }
+
+            .portrait-frame,
+            .about-visual {
+                max-width: 120pt !important;
+                width: 100pt !important;
+                height: 100pt !important;
+                margin: 0 auto 10pt auto !important;
+                border-radius: 50% !important;
+                overflow: hidden !important;
+                border: 1px solid #d4d1ca !important;
+                box-shadow: none !important;
+            }
+
+            .portrait-caption {
+                display: none !important;
+            }
+
+            /* ---- VIDEO — hide video, show fallback message ---- */
+            video {
+                display: none !important;
+            }
+
+            .showcase-video::after {
+                content: "[视频可在在线作品集中查看：isaac-portfolio-red.vercel.app]";
+                display: block;
+                font-size: 9pt;
+                color: #7a7974;
+                font-style: italic;
+                padding: 8pt;
+                border: 1px solid #d4d1ca;
+                border-radius: 4pt;
+                background: #ffffff;
+            }
+
+            video::after {
+                content: "[Video available in the live portfolio at isaac-portfolio-red.vercel.app]";
+                display: block;
+                font-size: 9pt;
+                color: #7a7974;
+                font-style: italic;
+                padding: 8pt;
+                border: 1px solid #d4d1ca;
+                border-radius: 4pt;
+            }
+
+            /* ---- CHIPS / TAGS ---- */
+            .chip {
+                border: 1px solid #d4d1ca !important;
+                background: #f3f0ec !important;
+                color: #28251d !important;
+                padding: 2pt 5pt !important;
+                font-size: 8pt !important;
+                border-radius: 99pt !important;
+                display: inline-block !important;
+                margin: 1pt 2pt !important;
+            }
+
+            /* ---- METRICS / RESULTS NUMBERS ---- */
+            .metric strong,
+            .result-card strong,
+            .metric-value,
+            .stat-value {
+                font-size: 20pt !important;
+                color: #01696f !important;
+            }
+
+            /* ---- LINKS — show URL text ---- */
+            a[href]::after {
+                content: none !important;
+            }
+
+            /* ---- EYEBROW LABELS ---- */
+            .eyebrow,
+            .label {
+                background: #edeae5 !important;
+                color: #01696f !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* ---- HERO SECTION ---- */
+            .hero h1 {
+                font-size: 28pt !important;
+                margin-bottom: 8pt !important;
+            }
+
+            .hero-card,
+            .hero-stats-card {
+                margin-top: 12pt !important;
+            }
+
+            .hero-metrics,
+            .hero-stats-card {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8pt !important;
+            }
+
+            /* ---- WORKFLOW STEPS ---- */
+            .workflow,
+            .workflow-steps {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 6pt !important;
+                overflow: visible !important;
+            }
+
+            .workflow-step,
+            .w-step {
+                break-inside: avoid !important;
+                padding: 6pt !important;
+                min-height: unset !important;
+                border: 1px solid #d4d1ca !important;
+                box-shadow: none !important;
+                border-radius: 4pt !important;
+                background: #ffffff !important;
+            }
+
+            .w-arrow {
+                display: none !important;
+            }
+
+            /* ---- FOOTER ---- */
+            footer {
+                font-size: 8pt !important;
+                color: #a8a39b !important;
+                padding: 8pt 0 0 0 !important;
+                border-top: 1px solid #d4d1ca !important;
+                margin-top: 12pt !important;
+            }
+
+            .footer-info {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6pt !important;
+            }
+
+            /* ---- PAGE BREAKS ---- */
+            /* Force a new page before major sections */
+            #projects,
+            #skills,
+            #results {
+                break-before: page;
+                page-break-before: always;
+            }
+
+            /* Never break inside these */
+            .project-card,
+            .skill-card,
+            .result-card,
+            .metric-card,
+            .workflow-step,
+            .w-step,
+            .panel {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1599,6 +1958,52 @@
                 menuBtn.setAttribute('aria-expanded', 'false');
             }
         }
+
+        // Force Chinese + light mode for printing, then restore the previous screen state.
+        function setPrintLanguage(lang) {
+            document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+                const val = el.getAttribute(`data-${lang}`);
+                if (!val) return;
+                if (el.hasAttribute('data-is-html')) {
+                    el.innerHTML = val;
+                } else {
+                    el.textContent = val;
+                }
+            });
+
+            document.querySelectorAll(`[data-${lang}-alt]`).forEach(el => {
+                const alt = el.getAttribute(`data-${lang}-alt`);
+                if (alt) el.setAttribute('alt', alt);
+            });
+        }
+
+        function preparePrintView() {
+            if (window._printViewPrepared) return;
+            window._printViewPrepared = true;
+            window._printPrevTheme = document.documentElement.getAttribute('data-theme');
+            window._printPrevLang = currentLang;
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.setAttribute('lang', 'zh');
+            setPrintLanguage('zh');
+        }
+
+        window.addEventListener('beforeprint', preparePrintView);
+
+        window.addEventListener('keydown', event => {
+            if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'p') {
+                preparePrintView();
+            }
+        });
+
+        window.addEventListener('afterprint', function() {
+            const previousTheme = window._printPrevTheme || 'light';
+            const previousLang = window._printPrevLang || currentLang || 'zh';
+            setTheme(previousTheme);
+            currentLang = previousLang;
+            document.documentElement.setAttribute('lang', previousLang);
+            setLanguage(previousLang);
+            window._printViewPrepared = false;
+        });
     </script>
 </body>
 </html>
