@@ -1336,17 +1336,34 @@
                 break-inside: avoid;
             }
 
-            /* Project card top images — keep them but limit height so they don't eat pages */
+            /* Project card screenshots — keep the full image visible in PDF */
             .project-card img:first-child,
             .project-media img,
             .project-media.single img,
-            .project-media.app img,
-            .project-media-showcase img {
-                max-height: 120pt !important;
-                width: 100% !important;
-                object-fit: cover !important;
+            .project-media.app img {
+                max-height: 190pt !important;
+                width: auto !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
                 object-position: top center !important;
+                background: #ffffff !important;
                 border-radius: 4pt 4pt 0 0 !important;
+                display: block !important;
+                margin: 0 auto !important;
+            }
+
+            .project-media-showcase img {
+                max-height: 110pt !important;
+                width: auto !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                object-position: center center !important;
+                background: #111214 !important;
+                border-radius: 4pt !important;
+                display: block !important;
+                margin: 0 auto !important;
             }
 
             .project-media,
@@ -1612,7 +1629,7 @@
             </div>
             <div class="about-visual">
                 <figure class="portrait-frame">
-                    <img src="isaac-profile.jpg" alt="Isaac Cheok standing outside during overseas travel" loading="lazy">
+                    <img src="isaac-profile.jpg" alt="Isaac Cheok standing outside during overseas travel" loading="eager">
                     <figcaption class="portrait-caption">
                         <span data-en="Singapore Polytechnic" data-zh="新加坡理工学院">新加坡理工学院</span>
                         <span data-en="Business + AI builder" data-zh="商业与 AI 实干者">商业与 AI 实干者</span>
@@ -1719,7 +1736,7 @@
                 <p class="desc" data-en="A social-first wellness accountability app where young adults form small squads, complete daily missions, track health metrics, and encourage each other via a shared feed." data-zh="一款以社交为核心的健康打卡应用，年轻用户可以组建小队、完成日常任务、追踪健康数据，并通过共享动态流互相激励。">一款以社交为核心的健康打卡应用，年轻用户可以组建小队、完成日常任务、追踪健康数据，并通过共享动态流互相激励。</p>
 
                 <div class="project-media app">
-                    <img src="flux-app.jpg" alt="FLUX squad wellness dashboard screenshot" loading="lazy">
+                    <img src="flux-app.jpg" alt="FLUX squad wellness dashboard screenshot" loading="eager">
                 </div>
                 
                 <div class="ai-usage">
@@ -1743,7 +1760,7 @@
                 <p class="desc" data-en="A full-stack, mobile-first web app to track competitive board game seasons, featuring live leaderboards, guest player tracking, win-rate stats, and a custom rules DB." data-zh="一款全栈、移动端优先的 Web 应用，用于追踪桌游竞技赛季，包含实时排行榜、访客玩家记录、胜率统计以及自定义规则数据库。">一款全栈、移动端优先的 Web 应用，用于追踪桌游竞技赛季，包含实时排行榜、访客玩家记录、胜率统计以及自定义规则数据库。</p>
 
                 <div class="project-media app">
-                    <img src="monotracker-app.jpg" alt="MonoTracker leaderboard screen screenshot" loading="lazy">
+                    <img src="monotracker-app.jpg" alt="MonoTracker leaderboard screen screenshot" loading="eager">
                 </div>
                 
                 <div class="ai-usage">
@@ -1767,7 +1784,7 @@
                 <p class="desc" data-en="An automated system combining a Python Playwright scraper and a React dashboard to bypass Cloudflare and track real-time and historical crowd levels at Clementi ActiveSG Gym." data-zh="一个结合 Python Playwright 爬虫与 React 仪表盘的自动化系统，用于绕过 Cloudflare 限制，并追踪 Clementi ActiveSG 健身房的实时与历史客流量。">一个结合 Python Playwright 爬虫与 React 仪表盘的自动化系统，用于绕过 Cloudflare 限制，并追踪 Clementi ActiveSG 健身房的实时与历史客流量。</p>
 
                 <div class="project-media single">
-                    <img src="activesg-tracker.jpg" alt="ActiveSG Gym Tracker dashboard screenshot" loading="lazy">
+                    <img src="activesg-tracker.jpg" alt="ActiveSG Gym Tracker dashboard screenshot" loading="eager">
                 </div>
                 
                 <div class="ai-usage">
@@ -1788,8 +1805,8 @@
             <article class="card project-card ecommerce-card">
                 <div class="project-media-showcase" aria-label="E-commerce AI creative media showcase">
                     <div class="showcase-image-stack">
-                        <img src="ecommerce-gemini-prompt.jpg" alt="CapCut editing timeline assembling AI-generated clips" loading="lazy">
-                        <img src="ecommerce-capcut-workflow.jpg" alt="Gemini mobile prompt interface generating product video" loading="lazy">
+                        <img src="ecommerce-gemini-prompt.jpg" alt="CapCut editing timeline assembling AI-generated clips" loading="eager">
+                        <img src="ecommerce-capcut-workflow.jpg" alt="Gemini mobile prompt interface generating product video" loading="eager">
                     </div>
                     <div class="showcase-video">
                         <video src="ecommerce-final-ad.mp4" controls muted loop playsinline></video>
@@ -1984,6 +2001,9 @@
             window._printPrevLang = currentLang;
             document.documentElement.setAttribute('data-theme', 'light');
             document.documentElement.setAttribute('lang', 'zh');
+            document.querySelectorAll('img').forEach(img => {
+                img.loading = 'eager';
+            });
             setPrintLanguage('zh');
         }
 
